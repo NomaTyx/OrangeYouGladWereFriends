@@ -25,7 +25,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movementDir = new Vector3(movementX, 0.0f, movementY);
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 movementDir = forward * movementY + right * movementX;
+
         rb.AddForce(movementDir * speed);
     }
 }
