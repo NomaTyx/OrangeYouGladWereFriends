@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    public int MaxHealth => _maxHealth;
+
     [SerializeField] private int _maxHealth = 3;
     private int _currentHealth;
 
@@ -17,8 +19,11 @@ public class Health : MonoBehaviour
     public void Damage(int amount)
     {
         _currentHealth -= amount;
+        if (_currentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+        }
         OnDamaged?.Invoke();
-        Debug.Log(_currentHealth);
     }
 
     public void heal(int amount)
@@ -29,7 +34,6 @@ public class Health : MonoBehaviour
     public void killPlayer()
     {
         Damage(_currentHealth);
-        OnDeath?.Invoke();
     }
 
 
