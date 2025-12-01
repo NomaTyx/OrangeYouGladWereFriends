@@ -11,7 +11,7 @@ public class SpawnApples : MonoBehaviour
         for(int i = 15; i <= 1000; i += 10)
         {
             GameObject newApple = GameObject.Instantiate(apple);
-            newApple.transform.position = new Vector3(2 - 2 * UnityEngine.Random.Range(0, 3), 1 - i / math.sqrt(3), math.sqrt(math.pow(i, 2) + i / math.sqrt(3)));
+            newApple.transform.position = new Vector3(2 - UnityEngine.Random.Range(0, 5), 1 - i / math.sqrt(3), math.sqrt(math.pow(i, 2) + i / math.sqrt(3)));
         }
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-[RequireComponent(typeof(BoxCollider))]
 public class TriggerVolume : MonoBehaviour
 {
     [SerializeField] private string _tagFilter = "Player";
@@ -23,6 +22,9 @@ public class TriggerVolume : MonoBehaviour
         if (TryGetComponent(out BoxCollider collider))
         {
             collider.isTrigger = true;
+        }
+        else if (TryGetComponent(out SphereCollider sCollider)) {
+            sCollider.isTrigger = true;
         }
     }
 

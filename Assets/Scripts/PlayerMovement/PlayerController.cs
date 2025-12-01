@@ -37,12 +37,22 @@ public class PlayerController : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
+        if(inGameplay && movementY < 0)
+        {
+            movementY = 0;
+        }
+
         Vector3 movementDir = forward * movementY + right * movementX;
 
         rb.AddForce(movementDir * speed);
 
         if (inGameplay) {
-            rb.AddForce(movementDir * speed);
+            rb.AddForce(forward * 2);
         }
+    }
+
+    public void ResetSpeed()
+    {
+        rb.linearVelocity = Vector3.zero;
     }
 }
