@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: fcc10895b5365304a872f7d763c4bd83
+  - enabled: 1
+    path: Assets/Scenes/ChristmasCard.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 128b9d916341f40439fc9e8e793ba406
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 62e283322fef5b549acf89ca0b7f1d7a, type: 3}
   m_UseUCBPForAssetBundles: 0

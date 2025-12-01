@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float gravityForce = 1f;
     [SerializeField] private bool inGameplay = false;
+    [SerializeField] private GameObject pauseGO;
 
     private Rigidbody rb;
     private float movementX;
@@ -54,5 +55,24 @@ public class PlayerController : MonoBehaviour
     public void ResetSpeed()
     {
         rb.linearVelocity = Vector3.zero;
+    }
+
+    public void OnPause()
+    {
+        Debug.Log("called lmoa");
+        pauseGO.SetActive(!pauseGO.activeInHierarchy);
+        PauseGame();
+    }
+
+    public void PauseGame()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 }
