@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float gravityForce = 1f;
+    [SerializeField] private bool inGameplay = false;
+
     private Rigidbody rb;
     private float movementX;
     private float movementY;    
@@ -37,5 +40,9 @@ public class PlayerController : MonoBehaviour
         Vector3 movementDir = forward * movementY + right * movementX;
 
         rb.AddForce(movementDir * speed);
+
+        if (inGameplay) {
+            rb.AddForce(movementDir * speed);
+        }
     }
 }
